@@ -55,34 +55,41 @@ from week6.week6 import drawSprite
 #         t.left(90)
 import turtle
 
-def drawTip(t, size):
+def drawtip(t,size):
     t.begin_fill()
-    for i in range(3):
-        t.forward(size)
-        t.left(120)
+    t.left(90)
+    t.forward(size/2)
+    t.right(120)
+    t.forward(size)
+    t.right(120)
+    t.forward(size)
+    t.right(120)
+    t.forward(size/2)
+    t.right(90)
     t.end_fill()
 
-def drawSpriteWithTips(t, legs, length):
+def drawspirtewithtips(someturtle, legs,length):
     angle = 360 / legs
-    for i in range(legs):
-        t.forward(length)
-        drawTip(t, 8)
-        t.backward(length)
-        t.left(angle)
+    for i in range (legs):
+        someturtle.forward(length)
+        drawtip(someturtle,10)
+        someturtle.backward(length)
+        someturtle.left(angle)
 
-def fancySquare(t, size):
+def fancySquare(t,size):
     for i in range(4):
-        drawSpriteWithTips(t, 8, 25)
+        drawspirtewithtips(t,8,20)
         t.forward(size)
         t.left(90)
 
+
 wn = turtle.Screen()
 t = turtle.Turtle()
-t.color("deeppink")
+t.color("pink")
 t.pensize(2)
 
-fancySquare(t, 100)
-turtle.mainloop()
+fancySquare(t,100)
+wn.exitonclick()
 
 
 
