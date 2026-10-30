@@ -5,6 +5,8 @@
 # print(sumTo(10))   # 55
 # n = int(input("PLEASE ENTER A NUMBER"))
 # print("Sum is", sumTo(n))
+from week6.week6 import drawSprite
+
 
 # import turtle
 #
@@ -51,14 +53,36 @@
 #         drawSprite(t,8,20)
 #         t.forward(size)
 #         t.left(90)
-#
-# wn = turtle.Screen()
-# t = turtle.Turtle()
-# t.color("pink")
-# t.pensize(2)
-#
-# fancySquare(t,100)
-# wn.exitonclick()
+import turtle
+
+def drawTip(t, size):
+    t.begin_fill()
+    for i in range(3):
+        t.forward(size)
+        t.left(120)
+    t.end_fill()
+
+def drawSpriteWithTips(t, legs, length):
+    angle = 360 / legs
+    for i in range(legs):
+        t.forward(length)
+        drawTip(t, 8)
+        t.backward(length)
+        t.left(angle)
+
+def fancySquare(t, size):
+    for i in range(4):
+        drawSpriteWithTips(t, 8, 25)
+        t.forward(size)
+        t.left(90)
+
+wn = turtle.Screen()
+t = turtle.Turtle()
+t.color("deeppink")
+t.pensize(2)
+
+fancySquare(t, 100)
+turtle.mainloop()
 
 
 
@@ -75,28 +99,28 @@
 
 
 
-import turtle
-
-def barChart(data):
-    t = turtle.Turtle()
-    t.fillcolor("red")
-    wn = turtle.Screen()
-    wn.bgcolor("lightgreen")
-    for h in data:
-        t.begin_fill()
-        t.left(90)
-        t.forward(h)
-        t.penup()
-        t.left(90)
-        t.write(h)
-        t.right(90)
-        t.pendown()
-        t.right(90)
-        t.forward(40)
-        t.right(90)
-        t.forward(h)
-        t.left(90)
-        t.end_fill()
-
-barChart([48, 117, 200, 240, 160, 260, 220])
-turtle.mainloop()
+# import turtle
+#
+# def barChart(data):
+#     t = turtle.Turtle()
+#     t.fillcolor("red")
+#     wn = turtle.Screen()
+#     wn.bgcolor("lightgreen")
+#     for h in data:
+#         t.begin_fill()
+#         t.left(90)
+#         t.forward(h)
+#         t.penup()
+#         t.left(90)
+#         t.write(h)
+#         t.right(90)
+#         t.pendown()
+#         t.right(90)
+#         t.forward(40)
+#         t.right(90)
+#         t.forward(h)
+#         t.left(90)
+#         t.end_fill()
+#
+# barChart([48, 117, 200, 240, 160, 260, 220])
+# turtle.mainloop()
