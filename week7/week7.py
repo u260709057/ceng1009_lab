@@ -98,7 +98,5 @@ def barChart(data):
         t.left(90)
         t.end_fill()
 
-
-
 barChart([48, 117, 200, 240, 160, 260, 220])
 turtle.mainloop()
